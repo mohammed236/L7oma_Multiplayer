@@ -32,11 +32,11 @@ public class InputsData : MonoBehaviour
     }
     public static bool IsShootingStarted()
     {
-        return InputsData.actionsAsset.Player.Test.IsPressed();
+        return actionsAsset.Player.Test.IsPressed();
     }
     public static bool IsShootingReleased()
     {
-        return InputsData.actionsAsset.Player.Test.WasReleasedThisFrame();
+        return actionsAsset.Player.Test.WasReleasedThisFrame();
     }
     void OnDisable()
     {
