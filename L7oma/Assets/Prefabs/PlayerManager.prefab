@@ -347,12 +347,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd82e440f38e3b468482a61e4356024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPointTransform: {fileID: 4284373587465253125}
+  prefabTransform: {fileID: 6233739606746732061, guid: 4140bfc423ebcd74595ec50143716013,
+    type: 3}
   weapon_SOs:
   - {fileID: 11400000, guid: 5aa2a46c53800024fbad2e9211e31637, type: 2}
-  startPointTransform: {fileID: 4284373587465253125}
   rangeModefier: 100
-  upModefier: 0.1
-  forwadModefier: 0.1
 --- !u!1001 &4293900986943699581
 PrefabInstance:
   m_ObjectHideFlags: 0

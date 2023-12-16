@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 8149947216527023465}
   - component: {fileID: 3511723859109267995}
   - component: {fileID: 6248405029691673057}
-  - component: {fileID: 5355992408098254376}
-  - component: {fileID: -4895105001747745150}
+  - component: {fileID: 9077858825427512317}
+  - component: {fileID: -4034182115732331769}
   m_Layer: 0
   m_Name: Stone
   m_TagString: Untagged
@@ -136,7 +136,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &6248405029691673057
 MonoBehaviour:
@@ -156,9 +156,9 @@ MonoBehaviour:
   ActiveSceneSynchronization: 0
   SceneMigrationSynchronization: 1
   SpawnWithObservers: 1
-  DontDestroyWithOwner: 1
+  DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &5355992408098254376
+--- !u!114 &9077858825427512317
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7772439191783314579}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28b838af7db1238449a02c304303b9d7, type: 3}
+  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SyncPositionX: 1
@@ -188,7 +188,7 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!114 &-4895105001747745150
+--- !u!114 &-4034182115732331769
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,6 +197,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7772439191783314579}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfa2eb57a08c96447b89ec645a885120, type: 3}
+  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
