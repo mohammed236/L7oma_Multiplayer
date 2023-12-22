@@ -1,4 +1,4 @@
-using Unity.Netcode;
+using Mirror;
 using UnityEngine;
 
 public class InteactionSystem : NetworkBehaviour
@@ -33,7 +33,7 @@ public class InteactionSystem : NetworkBehaviour
     }
     private void Update()
     {
-        if (!IsOwner) return;
+        if (!isLocalPlayer) return;
 
         if (Grababale.canInteract) // make raycast stop searching for object when holding one - just for performance
         {

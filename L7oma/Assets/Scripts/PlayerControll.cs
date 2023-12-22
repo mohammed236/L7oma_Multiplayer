@@ -1,4 +1,4 @@
-using Unity.Netcode;
+using Mirror;
 using UnityEngine;
 
 public class PlayerControll : NetworkBehaviour
@@ -20,13 +20,14 @@ public class PlayerControll : NetworkBehaviour
     private float Y;
     private float X;
     private bool isGrounded = false;
+    [ClientCallback]
 
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         cameraTransform = GetComponentInChildren<Camera>();
 
-        if (IsOwner)
+        if (isLocalPlayer)
         {
             // Enable the camera for the local player
             cameraTransform.enabled = true;
@@ -49,10 +50,9 @@ public class PlayerControll : NetworkBehaviour
             cameraTransform.GetComponent<AudioListener>().enabled = false;
         }
     }
-
     void Update()
     {
-        if (!IsOwner)
+        if (!isLocalPlayer)
         {
             return;
         }
@@ -61,17 +61,16 @@ public class PlayerControll : NetworkBehaviour
         Look();
         Jump();
     }
-
     void FixedUpdate()
     {
-        if (!IsOwner)
+        if (!isLocalPlayer)
         {
             return;
         }
 
         MovePlayer();
     }
-
+    
     void ReadInput()
     {
         movementInput = InputsData.MoveDirection();
