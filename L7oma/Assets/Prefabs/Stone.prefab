@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3511723859109267995}
   - component: {fileID: 6248405029691673057}
   - component: {fileID: 9077858825427512317}
-  - component: {fileID: -4034182115732331769}
+  - component: {fileID: -2103981667458189768}
   m_Layer: 0
   m_Name: Stone
   m_TagString: Untagged
@@ -188,7 +188,7 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!114 &-4034182115732331769
+--- !u!114 &-2103981667458189768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,6 +197,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7772439191783314579}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
+  m_Script: {fileID: 11500000, guid: dfa2eb57a08c96447b89ec645a885120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rangeModefier: 100
+  weapon_SOs:
+  - {fileID: 11400000, guid: 5aa2a46c53800024fbad2e9211e31637, type: 2}

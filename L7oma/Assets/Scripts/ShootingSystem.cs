@@ -6,9 +6,9 @@ public class ShootingSystem : NetworkBehaviour
 {
     [SerializeField] private Transform startPointTransform;
     [SerializeField] private List<Weapon_SO> weapon_SOs = new List<Weapon_SO>();
-    [SerializeField] private float rangeModefier = 10;
+    [SerializeField] private float rangeModefier = 100;
     
-    private int weaponIndex = 0;
+    public static int weaponIndex = 0;
     [Range(0f,1f)]
     private float holdTime = 0;
     
@@ -24,7 +24,7 @@ public class ShootingSystem : NetworkBehaviour
         }else if (InputsData.IsShootingReleased())
         {
             //shoot
-            SpawnAndMovePrefabOnServerRpc(startPointTransform.position, Quaternion.identity);
+            SpawnAndMovePrefabOnServerRpc(startPointTransform.position, startPointTransform.rotation);
 
             holdTime = 0;
         }
@@ -36,16 +36,7 @@ public class ShootingSystem : NetworkBehaviour
         NetworkObject networkObject = InstantiatedObject.GetComponent<NetworkObject>();
         networkObject?.Spawn();
 
-        Move(networkObject.NetworkObjectId);
-        Destroy(InstantiatedObject, 3f);
-    }
-    void Move(ulong id)
-    {
-
-        Transform cameraPosition = GetComponentInChildren<Camera>().transform;
-        Vector3 moveDirection = (cameraPosition.up * weapon_SOs[weaponIndex].upModefier + cameraPosition.forward * weapon_SOs[weaponIndex].forwadModefier)
-            * weapon_SOs[weaponIndex].range * rangeModefier * holdTime;
-
-        GetNetworkObject(id)?.GetComponent<Rigidbody>().AddForce(moveDirection);
+        if (networkObject.IsSpawned)
+            Destroy(networkObject.gameObject, 3f);
     }
 }
