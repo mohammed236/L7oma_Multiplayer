@@ -1,6 +1,5 @@
 using Mirror;
 using UnityEngine;
-
 public class PlayerControll : NetworkBehaviour
 {
     [SerializeField] private LayerMask groundLayer;
@@ -32,7 +31,7 @@ public class PlayerControll : NetworkBehaviour
             // Enable the camera for the local player
             cameraTransform.enabled = true;
             cameraTransform.GetComponent<AudioListener>().enabled = true;
-            
+
             try
             {
                 GameObject camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().gameObject;
@@ -70,12 +69,12 @@ public class PlayerControll : NetworkBehaviour
 
         MovePlayer();
     }
-    
+
     void ReadInput()
     {
         movementInput = InputsData.MoveDirection();
         turnInput = InputsData.TurnDirection();
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, 0.15f,groundLayer);
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, 0.15f, groundLayer);
     }
 
     void MovePlayer()

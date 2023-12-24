@@ -1,6 +1,5 @@
 using Mirror;
 using UnityEngine;
-
 [RequireComponent(typeof(Rigidbody))]
 public class Grababale : NetworkBehaviour, IGrababale
 {
@@ -27,19 +26,24 @@ public class Grababale : NetworkBehaviour, IGrababale
         rb.useGravity = true;
         canInteract = true;
     }
-    [ServerCallback]
-    private void SetObjectInPoint(Vector3 grabPoint)
+    [Command(requiresAuthority = false)]
+    private void CmdSetObjectInPoint(Vector3 grabPoint)
+    {
+        RpcSetObjectInPoint(grabPoint);
+    }
+
+    [ClientRpc]
+    private void RpcSetObjectInPoint(Vector3 grabPoint)
     {
         float lerpTime = 10f;
         Vector3 lerpedPos = Vector3.Lerp(transform.position, grabPoint, lerpTime * Time.deltaTime);
         rb.MovePosition(lerpedPos);
     }
-
     private void Update()
     {
         if (grabPointTransform != null)
         {
-            SetObjectInPoint(grabPointTransform.position);
+            CmdSetObjectInPoint(grabPointTransform.position);
         }
     }
 }

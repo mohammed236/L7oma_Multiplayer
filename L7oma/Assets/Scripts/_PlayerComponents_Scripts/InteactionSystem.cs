@@ -1,6 +1,5 @@
 using Mirror;
 using UnityEngine;
-
 public class InteactionSystem : NetworkBehaviour
 {
     [SerializeField] private Transform GrabPoint;
@@ -18,13 +17,13 @@ public class InteactionSystem : NetworkBehaviour
     private bool IsThereInteraction()
     {
         var camPos = camTransform.position;
-        Physics.Raycast(camPos, camTransform.forward, out RaycastHit hit,intercationDistance,interactedLayer);
+        Physics.Raycast(camPos, camTransform.forward, out RaycastHit hit, intercationDistance, interactedLayer);
 
         if (!hit.transform)
         {
             return false;
         }
-        else if(hit.transform.TryGetComponent(out interactableObject))
+        else if (hit.transform.TryGetComponent(out interactableObject))
         {
             return true;
         }

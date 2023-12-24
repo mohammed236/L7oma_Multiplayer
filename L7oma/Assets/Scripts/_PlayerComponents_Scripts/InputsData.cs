@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class InputsData : MonoBehaviour
 {
     public static ActionAsset actionsAsset;
@@ -9,7 +8,7 @@ public class InputsData : MonoBehaviour
         actionsAsset = new ActionAsset();
         actionsAsset.Enable();
     }
-    
+
     public static Vector2 MoveDirection()
     {
         if (actionsAsset.Player.Move.IsPressed())
